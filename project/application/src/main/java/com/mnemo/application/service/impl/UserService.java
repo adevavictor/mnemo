@@ -28,7 +28,7 @@ public class UserService implements CrudService<User, Long> {
 
 	@Override
 	@Transactional(readOnly = true)
-	public User getSingle(Long id) {
+	public Optional<T> getSingle(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
