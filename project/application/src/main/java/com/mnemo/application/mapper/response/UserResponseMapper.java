@@ -1,4 +1,4 @@
-package com.mnemo.application.mapper.impl;
+package com.mnemo.application.mapper.response;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import com.mnemo.application.exception.BadRequestException;
 import com.mnemo.application.exception.NotFoundException;
 import com.mnemo.application.utils.Utils;
 
@@ -15,8 +16,14 @@ import com.mnemo.application.utils.Utils;
 public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler(value = { NotFoundException.class })
-	protected ResponseEntity<Object> handleNumberFormatException(RuntimeException ex, WebRequest request) {
+	protected ResponseEntity<Object> handleNotFoundExceptionException(RuntimeException ex, WebRequest request) {
 		return handleExceptionInternal(ex, Utils.buildException(HttpStatus.NOT_FOUND.value(), ex.getMessage()), 
 				new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+	}
+	
+	@ExceptionHandler(value = { BadRequestException.class })
+	protected ResponseEntity<Object> handleBadRequestExceptionException(RuntimeException ex, WebRequest request) {
+		return handleExceptionInternal(ex, Utils.buildException(HttpStatus.BAD_REQUEST.value(), ex.getMessage()), 
+				new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
 	}
 }

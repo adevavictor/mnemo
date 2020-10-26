@@ -6,4 +6,5 @@ import com.mnemo.application.domain.User;
 
 public interface UserRepository extends PagingAndSortingRepository<User, Long> {
 
+	public boolean existsByCode(String code);
 }

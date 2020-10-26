@@ -35,8 +35,7 @@ public class UserService implements CrudService<User, Long> {
 	@Override
 	@Transactional
 	public User save(User entity) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.save(entity);
 	}
 
 	@Override
@@ -44,5 +43,10 @@ public class UserService implements CrudService<User, Long> {
 	public void delete(User entity) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Transactional(readOnly = true)
+	public boolean existsByCode(String code) {
+		return repository.existsByCode(code);
 	}
 }
