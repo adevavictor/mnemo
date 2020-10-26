@@ -2,17 +2,17 @@ package com.mnemo.api.dto;
 
 import java.io.Serializable;
 
-public class GroupDto implements Serializable {
+public class GroupResponseDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String name;
 
-	public GroupDto() {
+	public GroupResponseDto() {
 	}
 	
-	public GroupDto(Long id, String name) {
+	public GroupResponseDto(Long id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -50,7 +50,7 @@ public class GroupDto implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		GroupDto other = (GroupDto) obj;
+		GroupResponseDto other = (GroupResponseDto) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

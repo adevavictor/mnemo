@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.mnemo.api.dto.GroupDto;
-import com.mnemo.api.dto.UserDto;
+import com.mnemo.api.dto.GroupResponseDto;
+import com.mnemo.api.dto.UserResponseDto;
 import com.mnemo.api.response.SingleUserResponse;
 import com.mnemo.application.domain.Group;
 import com.mnemo.application.domain.User;
@@ -17,16 +17,16 @@ public class UserResponseMapper implements ResponseMapper<SingleUserResponse, Us
 
 	@Override
 	public SingleUserResponse mapSingle(User entity) {
-		UserDto userDto = new UserDto();
+		UserResponseDto userDto = new UserResponseDto();
 		userDto.setId(entity.getId());
 		userDto.setName(entity.getName());
 		userDto.setSurname(entity.getSurname());
 		userDto.setCode(entity.getCode());
 		
-		List<GroupDto> groups = new ArrayList<GroupDto>();
+		List<GroupResponseDto> groups = new ArrayList<GroupResponseDto>();
 		
 		for (Group group: entity.getGroups()) {
-			GroupDto groupDto = new GroupDto();
+			GroupResponseDto groupDto = new GroupResponseDto();
 			groupDto.setId(group.getId());
 			groupDto.setName(group.getName());
 			

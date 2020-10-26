@@ -3,7 +3,7 @@ package com.mnemo.api.dto;
 import java.io.Serializable;
 import java.util.List;
 
-public class UserDto implements Serializable {
+public class UserResponseDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -11,12 +11,12 @@ public class UserDto implements Serializable {
 	private String name;
 	private String surname;
 	private String code;
-	private List<GroupDto> groups;
+	private List<GroupResponseDto> groups;
 	
-	public UserDto() {
+	public UserResponseDto() {
 	}
 	
-	public UserDto(Long id, String name, String surname, String code, List<GroupDto> groups) {
+	public UserResponseDto(Long id, String name, String surname, String code, List<GroupResponseDto> groups) {
 		this.id = id;
 		this.name = name;
 		this.surname = surname;
@@ -56,11 +56,11 @@ public class UserDto implements Serializable {
 		this.code = code;
 	}
 
-	public List<GroupDto> getGroups() {
+	public List<GroupResponseDto> getGroups() {
 		return groups;
 	}
 
-	public void setGroups(List<GroupDto> groups) {
+	public void setGroups(List<GroupResponseDto> groups) {
 		this.groups = groups;
 	}
 
@@ -84,7 +84,7 @@ public class UserDto implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UserDto other = (UserDto) obj;
+		UserResponseDto other = (UserResponseDto) obj;
 		if (code == null) {
 			if (other.code != null)
 				return false;

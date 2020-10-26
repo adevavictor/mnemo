@@ -2,26 +2,26 @@ package com.mnemo.api.response;
 
 import java.io.Serializable;
 
-import com.mnemo.api.dto.UserDto;
+import com.mnemo.api.dto.UserResponseDto;
 
 public class SingleUserResponse implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	private UserDto user;
+	private UserResponseDto user;
 	
 	public SingleUserResponse() {
 	}
 
-	public SingleUserResponse(UserDto user) {
+	public SingleUserResponse(UserResponseDto user) {
 		this.user = user;
 	}
 
-	public UserDto getUser() {
+	public UserResponseDto getUser() {
 		return user;
 	}
 
-	public void setUser(UserDto user) {
+	public void setUser(UserResponseDto user) {
 		this.user = user;
 	}
 
