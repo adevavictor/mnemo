@@ -41,8 +41,7 @@ public class UserService implements CrudService<User, Long> {
 	@Override
 	@Transactional
 	public void delete(User entity) {
-		// TODO Auto-generated method stub
-		
+		repository.delete(entity);
 	}
 	
 	@Transactional(readOnly = true)
