@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
@@ -12,12 +13,15 @@ public class UserRequestDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@NotEmpty(message = "User name must not me empty. ")
 	@Length(min = 3, max = 20, message = "User name is required and must have between 3 and 20 characters. ")
 	private String name;
 	
+	@NotEmpty(message = "User surname must not me empty. ")
 	@Length(min = 10, max = 40, message = "User surname is required and must have between 10 and 40 characters. ")
 	private String surname;
 	
+	@NotEmpty(message = "User code must not me empty. ")
 	@Length(min = 10, max = 40, message = "User code is required and must have between 10 and 40 characters. ")
 	private String code;
 	

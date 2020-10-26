@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Length;
+
 public class GroupRequestDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -13,6 +15,7 @@ public class GroupRequestDto implements Serializable {
 	private Long id;
 	
 	@NotEmpty(message = "Group name must not me empty. ")
+	@Length(min = 3, max = 20, message = "Group name must have between 3 and 20 characters. ")
 	private String name;
 
 	public GroupRequestDto() {
