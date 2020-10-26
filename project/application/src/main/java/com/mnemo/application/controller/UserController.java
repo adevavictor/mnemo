@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -13,10 +14,12 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mnemo.api.request.UpdateUserRequest;
 import com.mnemo.api.request.CreateUserRequest;
+import com.mnemo.api.response.MultipleUserResponse;
 import com.mnemo.api.response.SingleUserResponse;
 import com.mnemo.application.domain.User;
 import com.mnemo.application.exception.BadRequestException;
@@ -42,6 +45,19 @@ public class UserController {
 		this.responseMapper = responseMapper;
 		this.createRequestMapper = createRequestMapper;
 		this.updateRequestMapper = updateRequestMapper;
+	}
+	
+	@GetMapping("/users")
+	public ResponseEntity<MultipleUserResponse> getUsers(
+			@RequestParam(name = "type", required = false) Optional<String> type,
+			@RequestParam(name = "order", required = false) Optional<String> order,
+			@RequestParam(name = "value", required = false) Optional<String> value,
+			@RequestParam(name = "page", required = false, defaultValue = "0") Integer page) {
+		
+		Page<User> users = service.getAll(type, order, value, page);
+		MultipleUserResponse response = responseMapper.mapMultiple(users);
+		
+		return ResponseEntity.ok(response);
 	}
 	
 	@GetMapping("/user/{id}")

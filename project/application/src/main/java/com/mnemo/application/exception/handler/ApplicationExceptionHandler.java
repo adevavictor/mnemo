@@ -14,7 +14,7 @@ import com.mnemo.application.utils.Utils;
 
 @ControllerAdvice
 public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler {
-
+	
 	@ExceptionHandler(value = { NotFoundException.class })
 	protected ResponseEntity<Object> handleNotFoundExceptionException(RuntimeException ex, WebRequest request) {
 		return handleExceptionInternal(ex, Utils.buildException(HttpStatus.NOT_FOUND.value(), ex.getMessage()), 

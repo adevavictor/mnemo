@@ -29,22 +29,22 @@ public class Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Group group1 = new Group();
-		group1.setName("Group 1");
+		group1.setName("Group.1");
 		
 		Group group2 = new Group();
-		group2.setName("Group 2");
+		group2.setName("Group.2");
 		
 		groupRepository.saveAll(Arrays.asList(group1, group2));
 		
 		User user1 = new User();
-		user1.setName("User 1 Name");
-		user1.setSurname("User 1 Surname");
+		user1.setName("User.1.Name");
+		user1.setSurname("User.1.Surname");
 		user1.setCode("User.1.code");
 		user1.setGroups(Arrays.asList(group1));
 		
 		User user2 = new User();
-		user2.setName("User 2 Name");
-		user2.setSurname("User 2 Surname");
+		user2.setName("User.2.Name");
+		user2.setSurname("User.2Surname");
 		user2.setCode("User.2.code");
 		user2.setGroups(Arrays.asList(group2));
 		
