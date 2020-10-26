@@ -106,9 +106,16 @@ public class UserController {
 			throw new NotFoundException(String.format("%s%s", Constants.NOT_FOUND_MESSAGE, String.valueOf(id)));
 		}
 		
-		User entity = updateRequestMapper.map(request, user.get());
+		User existingUser = user.get();
+		String requestCode = request.getUser().getCode();
 		
-		return ResponseEntity.ok(service.save(entity));
+		if (!requestCode.equals(existingUser.getCode()) && service.existsByCode(requestCode)) {
+			throw new ConflictException(String.format("%s%s", Constants.COFLICT_MESSAGE, requestCode));
+		}
+		
+		User modifiedUser = updateRequestMapper.map(request, existingUser);
+		
+		return ResponseEntity.ok(service.save(modifiedUser));
 	}
 	
 	@DeleteMapping("/user/{id}")
