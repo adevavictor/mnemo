@@ -1,4 +1,4 @@
-package com.mnemo.api.dto;
+package com.mnemo.api.response.dto;
 
 import java.io.Serializable;
 

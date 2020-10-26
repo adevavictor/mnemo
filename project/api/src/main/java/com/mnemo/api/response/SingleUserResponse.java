@@ -2,7 +2,7 @@ package com.mnemo.api.response;
 
 import java.io.Serializable;
 
-import com.mnemo.api.dto.UserResponseDto;
+import com.mnemo.api.response.dto.UserResponseDto;
 
 public class SingleUserResponse implements Serializable {
 

@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.mnemo.api.dto.GroupResponseDto;
-import com.mnemo.api.dto.UserResponseDto;
 import com.mnemo.api.response.SingleUserResponse;
+import com.mnemo.api.response.dto.GroupResponseDto;
+import com.mnemo.api.response.dto.UserResponseDto;
 import com.mnemo.application.domain.Group;
 import com.mnemo.application.domain.User;
 import com.mnemo.application.mapper.ResponseMapper;
