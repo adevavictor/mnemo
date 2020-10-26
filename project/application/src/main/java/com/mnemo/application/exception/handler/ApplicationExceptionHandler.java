@@ -9,6 +9,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.mnemo.application.exception.BadRequestException;
+import com.mnemo.application.exception.ConflictException;
 import com.mnemo.application.exception.NotFoundException;
 import com.mnemo.application.utils.Utils;
 
@@ -25,5 +26,11 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
 	protected ResponseEntity<Object> handleBadRequestExceptionException(RuntimeException ex, WebRequest request) {
 		return handleExceptionInternal(ex, Utils.buildException(HttpStatus.BAD_REQUEST.value(), ex.getMessage()), 
 				new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+	}
+	
+	@ExceptionHandler(value = { ConflictException.class })
+	protected ResponseEntity<Object> handleConflictExceptionException(RuntimeException ex, WebRequest request) {
+		return handleExceptionInternal(ex, Utils.buildException(HttpStatus.CONFLICT.value(), ex.getMessage()), 
+				new HttpHeaders(), HttpStatus.CONFLICT, request);
 	}
 }

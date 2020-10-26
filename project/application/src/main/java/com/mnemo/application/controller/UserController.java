@@ -23,6 +23,7 @@ import com.mnemo.api.response.MultipleUserResponse;
 import com.mnemo.api.response.SingleUserResponse;
 import com.mnemo.application.domain.User;
 import com.mnemo.application.exception.BadRequestException;
+import com.mnemo.application.exception.ConflictException;
 import com.mnemo.application.exception.NotFoundException;
 import com.mnemo.application.mapper.request.CreateUserRequestMapper;
 import com.mnemo.application.mapper.request.UpdateUserRequestMapper;
@@ -77,6 +78,12 @@ public class UserController {
 	public ResponseEntity<User> saveUser(@RequestBody(required = true) @Valid CreateUserRequest request, BindingResult result) {
 		if (result.hasErrors()) {
 			throw new BadRequestException(Utils.buildRequestErrorMessage(result));
+		}
+		
+		String code = request.getUser().getCode();
+		
+		if (service.existsByCode(code)) {
+			throw new ConflictException(String.format("%s%s", Constants.COFLICT_MESSAGE, code));
 		}
 		
 		User user = createRequestMapper.map(request);
