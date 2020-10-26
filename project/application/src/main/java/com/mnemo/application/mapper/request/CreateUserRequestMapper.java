@@ -5,18 +5,18 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.mnemo.api.request.PostUserRequest;
+import com.mnemo.api.request.CreateUserRequest;
 import com.mnemo.api.request.dto.GroupRequestDto;
 import com.mnemo.api.request.dto.UserRequestDto;
 import com.mnemo.application.domain.Group;
 import com.mnemo.application.domain.User;
-import com.mnemo.application.mapper.RequestMapper;
+import com.mnemo.application.mapper.CreateRequestMapper;
 
 @Component
-public class UserRequestMapper implements RequestMapper<PostUserRequest, User> {
+public class CreateUserRequestMapper implements CreateRequestMapper<CreateUserRequest, User> {
 
 	@Override
-	public User map(PostUserRequest request) {
+	public User map(CreateUserRequest request) {
 		UserRequestDto userDto = request.getUser();
 		
 		User user = new User();

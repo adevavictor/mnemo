@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 
 import com.mnemo.api.request.dto.UserRequestDto;
 
-public class PostUserRequest implements Serializable {
+public class UpdateUserRequest implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
@@ -15,10 +15,10 @@ public class PostUserRequest implements Serializable {
 	@Valid
 	private UserRequestDto user;
 
-	public PostUserRequest() {
+	public UpdateUserRequest() {
 	}
 	
-	public PostUserRequest(@NotNull(message = "A user must be given. ") @Valid UserRequestDto user) {
+	public UpdateUserRequest(@NotNull(message = "A user must be given. ") @Valid UserRequestDto user) {
 		this.user = user;
 	}
 
@@ -46,7 +46,7 @@ public class PostUserRequest implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PostUserRequest other = (PostUserRequest) obj;
+		UpdateUserRequest other = (UpdateUserRequest) obj;
 		if (user == null) {
 			if (other.user != null)
 				return false;

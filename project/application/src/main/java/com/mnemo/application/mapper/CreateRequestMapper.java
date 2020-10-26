@@ -1,6 +1,6 @@
 package com.mnemo.application.mapper;
 
-public interface RequestMapper<R, T> {
+public interface CreateRequestMapper<R, T> {
 
 	public T map(R request);
 }
