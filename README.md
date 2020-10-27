@@ -17,7 +17,11 @@ Peticiones:
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Aclaraciones: 
-Se ha tardado mucho más de lo previsto por mal planteamiento inicial propio. Empecé un proyecto que acabé borrando por completo cuando había invertido ya tiempo en él, lo cual me ha hecho invertir aún más, y esto me ha creado conflictos por la falta de planificación de este, pues no esperaba invertir ni la mitad."
-Aun con ésto, existen 2 branches, uno con un desarrollo inicial (master), y uno que creé para fixes("Fixes"), que acabé mergeando en el primero.
+Se ha tardado mucho más de lo previsto por mal planteamiento inicial propio y por problemas de conectividad. Empecé un proyecto que acabé borrando por completo cuando había invertido ya tiempo en él, lo cual me ha hecho invertir aún más, y esto me ha creado conflictos por la falta de planificación de este, pues no esperaba invertir ni la mitad.
 
-Aún faltan los Tests por añadir.
+Aun con ésto, existen 3 branches, uno con un desarrollo inicial (master), y uno que creé para fixes("Fixes"), que acabé mergeando en el primero.
+Tras éste, creé otro nuevo branch para nuevos fixes, que también mergeé una vez solucionado.
+
+Lo único que no he tenido en cuenta es el cambio de versiones, que tendría que haber subido por cada bugfix.
+
+Finalmente, se han añadido tests para el controlador de usuarios. 
