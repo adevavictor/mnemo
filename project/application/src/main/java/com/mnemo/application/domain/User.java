@@ -1,7 +1,6 @@
 package com.mnemo.application.domain;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -10,7 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -33,10 +33,14 @@ public class User implements Serializable {
 	@Column(name = "CODE", length = 40, nullable = false, unique = true)
 	private String code;
 
-	@OneToMany
-	@JoinColumn(name = "id")
-	private List<Group> groups = new ArrayList<Group>();
-	
+	@JoinTable(
+			name = "REL_USER_GROUPING",
+			joinColumns = @JoinColumn(name = "FK_GROUPING", nullable = false), 
+			inverseJoinColumns = @JoinColumn(name = "FK_USERS", nullable = false)
+	)
+    @ManyToMany
+    private List<Group> groups;
+    
 	public User() {
 	}
 
@@ -47,7 +51,7 @@ public class User implements Serializable {
 		this.code = code;
 		this.groups = groups;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}

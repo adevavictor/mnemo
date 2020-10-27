@@ -34,7 +34,10 @@ public class Application implements CommandLineRunner {
 		Group group2 = new Group();
 		group2.setName("Group.2");
 		
-		groupRepository.saveAll(Arrays.asList(group1, group2));
+		Group group3 = new Group();
+		group3.setName("Group.3");
+		
+		groupRepository.saveAll(Arrays.asList(group1, group2, group3));
 		
 		User user1 = new User();
 		user1.setName("User.1.Name");
@@ -46,8 +49,14 @@ public class Application implements CommandLineRunner {
 		user2.setName("User.2.Name");
 		user2.setSurname("User.2Surname");
 		user2.setCode("User.2.code");
-		user2.setGroups(Arrays.asList(group2));
+		user2.setGroups(Arrays.asList(group1, group2));
 		
-		userRepository.saveAll(Arrays.asList(user1, user2));
+		User user3 = new User();
+		user3.setName("User.3.Name");
+		user3.setSurname("User.3Surname");
+		user3.setCode("User.3.code");
+		user3.setGroups(Arrays.asList(group1, group2, group3));
+		
+		userRepository.saveAll(Arrays.asList(user1, user2, user3));
 	}
 }
